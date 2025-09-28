@@ -23,7 +23,7 @@ export default function TopicPage({ topic, questions }: TopicProps) {
         padding: "20px",
       }}
     >
-      <h1>{topic.name}</h1>
+      <h1>{topic.display_name}</h1>
       <p>{topic.color_code}</p>
       <ul>
         {questions.map((q) => (

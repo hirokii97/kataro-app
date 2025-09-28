@@ -1,5 +1,5 @@
 import { getAllTopics } from "@/lib/db";
-import { TopicCard } from "@/pages/components/ui/TopicCard";
+import TopicCard from "@/pages/components/ui/TopicCard";
 import { Topic } from "@/types";
 
 interface HomePageProps {
@@ -19,6 +19,7 @@ export default function Home({ topics }: HomePageProps) {
           <TopicCard
             key={topic.id}
             name={topic.name}
+            displayName={topic.display_name}
             colorCode={topic.color_code}
           />
         ))}

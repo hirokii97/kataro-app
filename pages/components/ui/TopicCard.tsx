@@ -2,10 +2,11 @@ import Link from "next/link";
 
 interface TopicCardProps {
   name: string;
-  colorCode: string; // 例: #FFB6C1
+  colorCode: string;
+  displayName: string;
 }
 
-export const TopicCard = ({ name, colorCode }: TopicCardProps) => {
+const TopicCard = ({ name, colorCode, displayName }: TopicCardProps) => {
   return (
     <Link href={`/${name}`} passHref>
       <div
@@ -17,8 +18,10 @@ export const TopicCard = ({ name, colorCode }: TopicCardProps) => {
           hover:shadow-xl hover:opacity-90 active:scale-[0.98]"
         style={{ backgroundColor: colorCode }}
       >
-        <span>{name}</span>
+        <span>{displayName}</span>
       </div>
     </Link>
   );
 };
+
+export default TopicCard;
