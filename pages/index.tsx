@@ -1,5 +1,5 @@
 import { getAllTopics } from "@/lib/db";
-import TopicCard from "@/pages/components/ui/TopicCard";
+import TopicCard from "@/lib/components/ui/TopicCard";
 import { Topic } from "@/types";
 
 interface HomePageProps {
@@ -9,9 +9,9 @@ interface HomePageProps {
 // 話題一覧
 export default function Home({ topics }: HomePageProps) {
   return (
-    <div className="py-6">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6">
-        何について話す？
+    <div>
+      <h2 className="text-xl font-bold text-gray-800 mb-6 text-center">
+        何についてKATARU？
       </h2>
       {/* Topics一覧 */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">

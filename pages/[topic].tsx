@@ -1,4 +1,5 @@
 import { getAllTopics, getQuestionsByTopicId } from "@/lib/db";
+import QuestionArea from "@/lib/components/feature/QuestionArea";
 import { Question, Topic } from "@/types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
@@ -15,23 +16,7 @@ export default function TopicPage({ topic, questions }: TopicProps) {
     return <div>Loading</div>;
   }
 
-  return (
-    <div
-      style={{
-        backgroundColor: topic.color_code,
-        minHeight: "100vh",
-        padding: "20px",
-      }}
-    >
-      <h1>{topic.display_name}</h1>
-      <p>{topic.color_code}</p>
-      <ul>
-        {questions.map((q) => (
-          <li key={q.id}>{q.question_text}</li>
-        ))}
-      </ul>
-    </div>
-  );
+  return <QuestionArea topic={topic} questions={questions} />;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

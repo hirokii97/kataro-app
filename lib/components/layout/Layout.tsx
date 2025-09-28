@@ -4,10 +4,6 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-/**
- * アプリケーション全体の共通レイアウト
- * (ヘッダー、背景色、フォントなど)
- */
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="bg-gray-50 min-h-screen font-sans">

@@ -13,6 +13,5 @@ export type Question = {
   topic_id: number;
   question_text: string;
   example_text: string | null;
-  focus_text: string | null;
   sort_order: number;
 };
