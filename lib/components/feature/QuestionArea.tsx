@@ -56,7 +56,7 @@ const QuestionArea: React.FC<QuestionAreaProps> = ({ topic, questions }) => {
         )}
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-3 h-100 overflow-y-scroll">
         {questions.map((question) => {
           const isSelected = question.id === selectedQuestionId;
 

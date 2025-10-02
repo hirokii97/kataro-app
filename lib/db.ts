@@ -30,3 +30,14 @@ export async function getQuestionsByTopicId(
   }
   return data as Question[];
 }
+export async function getAllQuestions(): Promise<Question[]> {
+  const { data, error } = await supabase
+    .from("questions")
+    .select("*")
+    .order("sort_order", { ascending: true });
+
+  if (error) {
+    throw new Error(`error fetching all questions`, error);
+  }
+  return data as Question[];
+}

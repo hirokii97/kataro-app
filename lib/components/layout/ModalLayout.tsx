@@ -16,7 +16,7 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({ children, isOpen }) => {
   const modalClasses = `
     fixed inset-0 z-50 transition-transform duration-300 ease-in-out
     ${isOpen ? "translate-y-0" : "translate-y-full"} 
-    bg-white shadow-2xl overflow-y-auto
+    bg-white shadow-2xl
   `;
 
   return (

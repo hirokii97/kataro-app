@@ -1,4 +1,4 @@
-import { getAllTopics, getQuestionsByTopicId } from "@/lib/db";
+import { getAllTopics, getQuestionsByTopicId, getAllQuestions } from "@/lib/db";
 import QuestionArea from "@/lib/components/feature/QuestionArea";
 import { Question, Topic } from "@/types";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -41,6 +41,18 @@ export const getStaticProps: GetStaticProps<TopicProps> = async ({
 }) => {
   const allTopics = await getAllTopics();
   const topicData = allTopics.find((t) => t.name === (params!.topic as string));
+
+    if (topicData && params!.topic === "all") {
+    const questionData = await getAllQuestions()
+
+      return {
+    props: {
+      topic: topicData,
+      questions: questionData,
+    },
+    revalidate: 60,
+  };
+  }
 
   if (!topicData) {
     return { notFound: true };
