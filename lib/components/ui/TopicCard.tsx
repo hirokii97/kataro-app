@@ -12,13 +12,13 @@ const TopicCard = ({ name, colorCode, displayName }: TopicCardProps) => {
       <div
         className="
           flex flex-col items-center justify-center 
-          w-full h-24 p-4 rounded-lg shadow-md 
+          w-full h-24 p-4 rounded-lg
           text-lg text-black transition-all duration-200
           cursor-pointer select-none
-          hover:shadow-xl hover:opacity-90 active:scale-[0.98]"
-        style={{ backgroundColor: colorCode }}
+          hover:opacity-90 active:scale-[0.98] border-3"
+        style={{ borderColor: colorCode }}
       >
-        <span>{displayName}</span>
+        <span className="font-mono font-bold">{displayName}</span>
       </div>
     </Link>
   );
