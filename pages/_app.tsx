@@ -5,7 +5,6 @@ import React from "react";
 import ModalLayout from "@/lib/components/layout/ModalLayout";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  const isModalOpen = router.pathname !== "/";
 
   const isModalPage = router.pathname === "/[topic]";
 
@@ -21,7 +20,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       {!isModalPage && <Component {...pageProps} key={router.route} />}
 
       {/* Modal の表示 */}
-      <ModalLayout isOpen={isModalOpen}>
+      <ModalLayout isOpen={isModalPage}>
         <ModalComponent {...pageProps} key={router.route} />
       </ModalLayout>
     </Layout>
