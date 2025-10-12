@@ -2,6 +2,7 @@ import { getAllTopics } from "@/lib/db";
 import TopicCard from "@/lib/components/ui/TopicCard";
 import { Topic } from "@/types";
 import Link from "next/link";
+import { ButtonLink } from "@/lib/components/ui/Button";
 
 interface HomePageProps {
   topics: Topic[];
@@ -30,7 +31,11 @@ export default function Home({ topics }: HomePageProps) {
           話題を取得できませんでした。データベースを確認してください。
         </p>
       )}
-      <Link href="/form">話題をリクエストする</Link>
+      <div className="mt-6 flex justify-center">
+      <ButtonLink>
+        <Link href="/form">話題をリクエストする</Link>
+      </ButtonLink>
+      </div>
     </div>
   );
 }

@@ -7,9 +7,23 @@ export const Button = ({
   return (
     <button
       {...componentProps}
-      className="w-50 flex justify-center py-2 px-4 border border-blue-400 rounded-full shadow-sm text-base font-medium bg-blue-50 hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+      className="w-50 flex justify-center py-2 px-4 border border-blue-400 rounded-xl shadow-sm text-base font-medium bg-blue-50 hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
     >
       {children}
     </button>
+  );
+};
+
+export const ButtonLink = ({
+  children,
+  ...componentProps
+}: ComponentProps<"div">) => {
+  return (
+    <div
+      {...componentProps}
+      className="w-50 flex justify-center py-2 px-4 border border-blue-400 rounded-xl shadow-sm text-base font-medium bg-blue-50 hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+    >
+      {children}
+    </div>
   );
 };
