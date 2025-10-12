@@ -2,7 +2,7 @@ import TopicRequestForm from "@/lib/components/ui/TopicRequestForm";
 import TopicRequestFormCheck from "@/lib/components/ui/TopicRequestFormCheck";
 import React, { Activity, useState } from "react";
 
-export default function form() {
+export default function Form() {
   const [theme, setTheme] = useState<string>("");
   const [topic, setTopic] = useState<string>("");
   const [example, setExample] = useState<string>("");
