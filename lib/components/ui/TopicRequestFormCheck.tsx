@@ -1,4 +1,5 @@
 import { useTopicRequest } from "@/lib/components/hooks/useTopicRequest";
+import { Button } from "@/lib/components/ui/Button";
 import React, { Dispatch, SetStateAction } from "react";
 
 export default function TopicRequestFormCheck({
@@ -21,7 +22,9 @@ export default function TopicRequestFormCheck({
       <div className="w-full bg-white p-6 rounded-lg border border-gray-200">
         {/* Title */}
         <h1 className="text-xl font-semibold text-center text-gray-800 mb-6">
-          テーマ・話題のリクエスト<br />【確認画面】
+          テーマ・話題のリクエスト
+          <br />
+          【確認画面】
         </h1>
 
         <form
@@ -43,7 +46,7 @@ export default function TopicRequestFormCheck({
               type="text"
               id="theme"
               name="theme"
-              className=""
+              className="focus:outline-none w-full"
               placeholder=""
               value={theme}
               readOnly
@@ -63,6 +66,7 @@ export default function TopicRequestFormCheck({
               name="topic"
               placeholder=""
               value={topic}
+              className="focus:outline-none w-full"
               readOnly
             ></textarea>
           </div>
@@ -80,28 +84,24 @@ export default function TopicRequestFormCheck({
               name="example"
               placeholder=""
               value={example}
+              className="focus:outline-none w-full"
               readOnly
             ></textarea>
           </div>
 
           {/* Buttons */}
-          <div className="flex justify-between mt-8 space-x-4">
+          <div className="flex justify-center mt-8 space-x-4">
             {/* Cancel Button */}
             <button
               type="button"
               onClick={() => setFormStatus("input")}
-              className="w-1/2 flex justify-center py-2 px-4 border border-gray-400 rounded-full text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out"
+              className="w-50 flex justify-center py-2 px-4 border border-gray-400 rounded-full text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out"
             >
               入力画面に戻る
             </button>
 
             {/* Confirmation Button */}
-            <button
-              type="submit"
-              className="w-1/2 flex justify-center py-2 px-4 border border-blue-400 rounded-full shadow-sm text-base font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
-            >
-              送信
-            </button>
+            <Button type="submit">送信</Button>
           </div>
         </form>
       </div>

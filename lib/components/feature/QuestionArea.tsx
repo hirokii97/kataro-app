@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
 import { Question, Topic } from "@/types";
 import { useMemo } from "react";
+import SelectedQuestion from "@/lib/components/ui/SelectedQuestion";
 
-interface QuestionAreaProps {
+export interface QuestionAreaProps {
   topic: Topic;
   questions: Question[];
 }
@@ -40,19 +41,11 @@ const QuestionArea: React.FC<QuestionAreaProps> = ({ topic, questions }) => {
         style={{ backgroundColor: topic.color_code }}
       >
         {selectedQuestion ? (
-          <div className="space-y-3">
-            <p className="text-sm opacity-80">{topic.display_name}</p>
-            <h3 className="text-2xl font-extrabold">
-              {selectedQuestion.question_text}
-            </h3>
-            {selectedQuestion.example_text && (
-              <p className="text-sm font-medium pt-2 border-t border-white border-opacity-30">
-                例: {selectedQuestion.example_text}
-              </p>
-            )}
-          </div>
+          <SelectedQuestion topic={topic} selectedQuestion={selectedQuestion} />
         ) : (
-          <h3 className="text-2xl font-extrabold">{topic.display_name}の話題をタップ！</h3>
+          <h3 className="text-2xl font-extrabold">
+            {topic.display_name}の話題をタップ！
+          </h3>
         )}
       </div>
 

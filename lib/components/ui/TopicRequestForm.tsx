@@ -1,3 +1,5 @@
+import { Button } from "@/lib/components/ui/Button";
+import SelectedQuestion from "@/lib/components/ui/SelectedQuestion";
 import Link from "next/link";
 import React from "react";
 
@@ -37,7 +39,7 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
               htmlFor="theme"
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              テーマ
+              テーマ（例：人生）
             </label>
             <input
               type="text"
@@ -57,7 +59,7 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
               htmlFor="topic"
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              話題
+              話題（例：人生で絶対成し遂げたいことは？）
             </label>
             <textarea
               id="topic"
@@ -76,7 +78,7 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
               htmlFor="example"
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              例
+              例（例：47都道府県全て行く！、オーロラみたい！）
             </label>
             <textarea
               id="example"
@@ -90,23 +92,19 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
           </div>
 
           {/* Buttons */}
-          <div className="flex justify-between mt-8 space-x-4">
+          <div className="flex justify-center mt-8 space-x-4">
             {/* Cancel Button */}
             <Link
               href="/"
-              className="w-1/2 flex justify-center py-2 px-4 border border-gray-400 rounded-full text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out"
+              className="w-50 flex justify-center py-2 px-4 border border-gray-400 rounded-full text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out"
             >
               キャンセル
             </Link>
 
             {/* Confirmation Button */}
-            <button
-              type="button"
-              onClick={() => setFormStatus("check")}
-              className="w-1/2 flex justify-center py-2 px-4 border border-blue-400 rounded-full shadow-sm text-base font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
-            >
+            <Button type="button" onClick={() => setFormStatus("check")}>
               確認画面へ
-            </button>
+            </Button>
           </div>
         </div>
       </div>
