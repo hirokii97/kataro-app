@@ -1,5 +1,5 @@
 import { useTopicRequest } from "@/lib/components/hooks/useTopicRequest";
-import { Button } from "@/lib/components/ui/Button";
+import { Button, ButtonBackLink } from "@/lib/components/ui/Button";
 import React, { Dispatch, SetStateAction } from "react";
 
 export default function TopicRequestFormCheck({
@@ -92,14 +92,9 @@ export default function TopicRequestFormCheck({
           {/* Buttons */}
           <div className="flex justify-center mt-8 space-x-4">
             {/* Cancel Button */}
-            <button
-              type="button"
-              onClick={() => setFormStatus("input")}
-              className="w-50 flex justify-center py-2 px-4 border border-gray-400 rounded-full text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out"
-            >
-              入力画面に戻る
-            </button>
-
+            <ButtonBackLink onClick={() => setFormStatus("input")}>
+              戻る
+            </ButtonBackLink>
             {/* Confirmation Button */}
             <Button type="submit">送信</Button>
           </div>

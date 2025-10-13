@@ -1,5 +1,4 @@
-import { Button } from "@/lib/components/ui/Button";
-import SelectedQuestion from "@/lib/components/ui/SelectedQuestion";
+import { Button, ButtonBackLink } from "@/lib/components/ui/Button";
 import Link from "next/link";
 import React from "react";
 
@@ -94,12 +93,13 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
           {/* Buttons */}
           <div className="flex justify-center mt-8 space-x-4">
             {/* Cancel Button */}
-            <Link
-              href="/"
-              className="w-50 flex justify-center py-2 px-4 border border-gray-400 rounded-full text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out"
-            >
-              キャンセル
-            </Link>
+            <ButtonBackLink>
+              <Link
+                href="/"
+              >
+                キャンセル
+              </Link>
+            </ButtonBackLink>
 
             {/* Confirmation Button */}
             <Button type="button" onClick={() => setFormStatus("check")}>

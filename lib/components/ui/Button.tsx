@@ -27,3 +27,17 @@ export const ButtonLink = ({
     </div>
   );
 };
+
+export const ButtonBackLink = ({
+  children,
+  ...componentProps
+}: ComponentProps<"div">) => {
+  return (
+    <div
+      {...componentProps}
+      className="w-50 flex justify-center py-2 px-4 border text-gray-700 bg-white hover:bg-gray-50  rounded-xl shadow-sm text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition duration-150 ease-in-out"
+    >
+      {children}
+    </div>
+  );
+};
