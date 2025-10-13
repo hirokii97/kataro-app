@@ -17,8 +17,8 @@ const Loading = ({ children }: { children: ReactNode }) => {
                     rounded-full          /* 完全な円形 */
                     h-20 w-20             /* サイズ設定 (80px x 80px) */
                     border-4              /* 全ての境界線の太さ */
-                    border-t-indigo-600   /* 上側の境界線の色 (主要な色) */
-                    border-b-indigo-600   /* 下側の境界線の色 */
+                    gray-700   /* 上側の境界線の色 (主要な色) */
+                    gray-700   /* 下側の境界線の色 */
                     border-l-transparent  /* 左側を透明にしてドーナツ型を作成 */
                     border-r-transparent  /* 右側を透明に */
                     shadow-lg             /* 軽い影を追加 */
@@ -26,7 +26,7 @@ const Loading = ({ children }: { children: ReactNode }) => {
         role="status" /* アクセシビリティ対応 */
         aria-label="Loading"
       />
-      <div className="absolute mt-40 text-indigo-700 text-xl font-semibold">
+      <div className="absolute mt-40 gray-700 text-xl font-semibold">
         {children}
       </div>
     </div>

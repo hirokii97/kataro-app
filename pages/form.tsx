@@ -1,3 +1,4 @@
+import FormSendError from "@/lib/components/ui/FormSendError";
 import FormSendSuccess from "@/lib/components/ui/FormSendSuccess";
 import TopicRequestForm from "@/lib/components/ui/TopicRequestForm";
 import TopicRequestFormCheck from "@/lib/components/ui/TopicRequestFormCheck";
@@ -35,8 +36,9 @@ export default function Form() {
       <Activity mode={formStatus === "success" ? "visible" : "hidden"}>
         <FormSendSuccess />
       </Activity>
-      {/* <FormSendSuccess /> */}
-      {/* <FormSendError /> */}
+      <Activity mode={formStatus === "error" ? "visible" : "hidden"}>
+        <FormSendError />
+      </Activity>
     </div>
   );
 }
