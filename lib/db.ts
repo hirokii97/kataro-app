@@ -55,7 +55,6 @@ export async function addTopicRequest(
     },
   ]);
   if (error) {
-    alert(error.message)
     throw new Error(error.message);
   }
 }

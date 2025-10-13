@@ -23,6 +23,7 @@ export const useTopicRequest = (
       await addTopicRequest(theme, topic, example);
       setFormStatus("success");
     } catch (error) {
+      console.error(error);
       setFormStatus("error");
     } finally {
       setIsLoading(false);
