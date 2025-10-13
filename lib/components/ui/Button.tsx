@@ -7,7 +7,7 @@ export const Button = ({
   return (
     <button
       {...componentProps}
-      className="w-50 flex justify-center py-2 px-4 border border-blue-400 rounded-xl shadow-sm text-base font-medium bg-blue-50 hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+      className="w-50 flex justify-center py-2 px-4 border border-blue-400 rounded-xl shadow-sm text-base font-medium bg-blue-50 hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50  disabled:bg-gray-400 disabled:border-none disabled:hover:text-black transition duration-150 ease-in-out"
     >
       {children}
     </button>

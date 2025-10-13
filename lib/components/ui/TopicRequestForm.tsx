@@ -1,6 +1,5 @@
 import { Button, ButtonBackLink } from "@/lib/components/ui/Button";
 import Link from "next/link";
-import React from "react";
 
 type TopicRequestFormProps = {
   theme: string;
@@ -24,7 +23,6 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
   return (
     <div className="bg-gray-50">
       <div className="w-full bg-white p-6 rounded-lg border border-gray-200">
-        {/* Title */}
         <h1 className="text-xl font-semibold text-center text-gray-800 mb-6">
           テーマ・話題のリクエスト
           <br />
@@ -32,7 +30,6 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
         </h1>
 
         <div className="space-y-6">
-          {/* Theme Input */}
           <div>
             <label
               htmlFor="theme"
@@ -52,7 +49,6 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
             />
           </div>
 
-          {/* Topic Input */}
           <div>
             <label
               htmlFor="topic"
@@ -71,7 +67,6 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
             ></textarea>
           </div>
 
-          {/* Example Input */}
           <div>
             <label
               htmlFor="example"
@@ -90,19 +85,18 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
             ></textarea>
           </div>
 
-          {/* Buttons */}
           <div className="flex justify-center mt-8 space-x-4">
-            {/* Cancel Button */}
             <ButtonBackLink>
-              <Link
-                href="/"
-              >
-                キャンセル
-              </Link>
+              <Link href="/">キャンセル</Link>
             </ButtonBackLink>
-
-            {/* Confirmation Button */}
-            <Button type="button" onClick={() => setFormStatus("check")}>
+            <Button
+              type="button"
+              // 必須項目
+              disabled={theme.trim() === "" || topic.trim() === ""}
+              onClick={() => {
+                setFormStatus("check");
+              }}
+            >
               確認画面へ
             </Button>
           </div>
