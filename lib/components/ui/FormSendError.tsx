@@ -1,11 +1,12 @@
 import { ButtonBackLink } from "@/lib/components/ui/Button";
+import Image from "next/image";
 import Link from "next/link";
 
 const FormSendError = () => {
   return (
     <div className="flex flex-col items-center">
       <div>
-        <img src="./sorry.png" alt="" />
+        <Image src="/sorry.png" alt="" width={200} height={200} />
       </div>
       <h1>送信エラー</h1>
       <p className="mt-4 text-center">
