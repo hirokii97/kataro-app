@@ -41,3 +41,21 @@ export async function getAllQuestions(): Promise<Question[]> {
   }
   return data as Question[];
 }
+
+export async function addTopicRequest(
+  theme: string,
+  topic: string,
+  example: string
+): Promise<void> {
+  const { data, error } = await supabase.from("request").insert([
+    {
+      theme: theme.trim(),
+      topic: topic.trim(),
+      example: example.trim(),
+    },
+  ]);
+  if (error) {
+    alert(error.message)
+    throw new Error(error.message);
+  }
+}
