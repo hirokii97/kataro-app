@@ -1,10 +1,12 @@
 import { addTopicRequest } from "@/lib/db";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
-export const useTopicRequest = () => {
+export const useTopicRequest = (
+  setFormStatus: Dispatch<
+    SetStateAction<"input" | "check" | "success" | "error">
+  >
+) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const submitRequest = async ({
     theme,
@@ -16,27 +18,15 @@ export const useTopicRequest = () => {
     example: string;
   }) => {
     setIsLoading(true);
-    setError(null);
-    setIsSuccess(false);
-
-    // テーマ、トピックは必須項目にする
-    if (theme === "" || topic === "") {
-      setError("テーマと話題は必須項目です！");
-      setIsLoading(false);
-      return;
-    }
 
     try {
       await addTopicRequest(theme, topic, example);
-      setIsSuccess(true);
+      setFormStatus("success");
     } catch (error) {
-      setError(
-        "提案の送信中にエラーが発生しました。時間をおいて再度お試しください。"
-      );
-      setIsSuccess(false);
+      setFormStatus("error");
     } finally {
       setIsLoading(false);
     }
   };
-  return { submitRequest, isLoading, error, isSuccess };
+  return { submitRequest, isLoading };
 };

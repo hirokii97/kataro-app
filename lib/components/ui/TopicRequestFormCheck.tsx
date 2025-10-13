@@ -1,5 +1,6 @@
 import { useTopicRequest } from "@/lib/components/hooks/useTopicRequest";
 import { Button, ButtonBackLink } from "@/lib/components/ui/Button";
+import Loading from "@/lib/components/ui/Loading";
 import React, { Dispatch, SetStateAction } from "react";
 
 export default function TopicRequestFormCheck({
@@ -15,10 +16,10 @@ export default function TopicRequestFormCheck({
     SetStateAction<"input" | "check" | "success" | "error">
   >;
 }) {
-  const { submitRequest, isLoading, error, isSuccess } = useTopicRequest();
+  const { submitRequest, isLoading } = useTopicRequest(setFormStatus);
   return (
     <div className="bg-gray-50">
-      {error}
+      {isLoading && <Loading>送信中</Loading>}
       <div className="w-full bg-white p-6 rounded-lg border border-gray-200">
         {/* Title */}
         <h1 className="text-xl font-semibold text-center text-gray-800 mb-6">

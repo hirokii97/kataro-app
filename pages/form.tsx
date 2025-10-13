@@ -1,3 +1,4 @@
+import FormSendSuccess from "@/lib/components/ui/FormSendSuccess";
 import TopicRequestForm from "@/lib/components/ui/TopicRequestForm";
 import TopicRequestFormCheck from "@/lib/components/ui/TopicRequestFormCheck";
 import React, { Activity, useState } from "react";
@@ -30,6 +31,9 @@ export default function Form() {
           example={example}
           setFormStatus={setFormStatus}
         />
+      </Activity>
+      <Activity mode={formStatus === "success" ? "visible" : "hidden"}>
+        <FormSendSuccess />
       </Activity>
       {/* <FormSendSuccess /> */}
       {/* <FormSendError /> */}
