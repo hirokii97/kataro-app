@@ -1,4 +1,5 @@
 import { Button, ButtonBackLink } from "@/lib/components/ui/Button";
+import Required from "@/lib/components/ui/tag/required";
 import Link from "next/link";
 
 type TopicRequestFormProps = {
@@ -33,9 +34,10 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
           <div>
             <label
               htmlFor="theme"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="text-sm font-medium text-gray-700 mb-1 flex"
             >
               テーマ（例：人生）
+              <Required />
             </label>
             <input
               type="text"
@@ -52,9 +54,10 @@ const TopicRequestForm: React.FC<TopicRequestFormProps> = ({
           <div>
             <label
               htmlFor="topic"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="inline text-sm font-medium text-gray-700 mb-1"
             >
               話題（例：人生で絶対成し遂げたいことは？）
+              <Required />
             </label>
             <textarea
               id="topic"
