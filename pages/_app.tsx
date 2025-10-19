@@ -16,27 +16,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <Head>
         <title>KATARO - あなたの心を語るための質問集</title>
-        <meta
-          name="description"
-          content="仕事、恋愛、趣味など、9つの話題から選ばれた質問で、会話を深めるきっかけを提供します。何から話せばいいかわからない時に。"
-        />
-
-        {/* Open Graph Protocol (SNSシェア用) の設定 */}
-        <meta
-          property="og:title"
-          content="KATARO - あなたの心を語るための質問集"
-        />
-        <meta
-          property="og:description"
-          content="仕事、恋愛、趣味など、9つの話題から選ばれた質問で、会話を深めるきっかけを提供します。"
-        />
-        <meta property="og:url" content="https://kataro-app.vercel.app/og-image.png" />
-        <meta property="og:site_name" content="KATARO" />
-        {/* OGP画像の設定（/publicフォルダにog-image.pngを配置） */}
-        <meta
-          property="og:image"
-          content="https://kataro-app.vercel.app/og-image.png"
-        />
       </Head>
       <Layout>
         {/* 画面1 (HomeComponent) の表示 */}
