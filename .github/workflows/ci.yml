@@ -27,7 +27,7 @@ jobs:
       # 1. Vitestを実行し、カバレッジレポート（lcov.infoを含む）を生成
       - name: Run Vitest and Check 100% Coverage
         # 100%未満の場合、このステップでCIが失敗します
-        run: npm run test:coverage
+        run: npm run ci:test
 
       # 2. (推奨) カバレッジレポートをGitHub Artifactとしてアップロード
       # CI結果の確認やデバッグに役立ちます
