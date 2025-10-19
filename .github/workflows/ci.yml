@@ -1,0 +1,38 @@
+name: CI / Test and Coverage
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main] # PRトリガー時にカバレッジレポートを投稿
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  test:
+    name: Run Tests and Check Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # 1. Vitestを実行し、カバレッジレポート（lcov.infoを含む）を生成
+      - name: Run Vitest and Check 100% Coverage
+        # 100%未満の場合、このステップでCIが失敗します
+        run: npm run ci:test
+
+      - name: "Report Coverage"
+        uses: davelosert/vitest-coverage-report-action@v2
