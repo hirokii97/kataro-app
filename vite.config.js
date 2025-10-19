@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
 export default defineConfig({
   test: {
@@ -6,7 +6,8 @@ export default defineConfig({
     global: true,
     coverage: {
       provider: "v8",
-      reporter: ["text", "json-summary", "lcov"],
+      reporter: ["text", "json-summary", "json"],
+      reportOnFailure: true,
       include: ["pages/**/*.{ts,tsx}", "lib/**/*.{ts,tsx}"],
       // カバレッジ100%
       // lines: 100,

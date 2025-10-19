@@ -2,9 +2,10 @@ name: CI / Test and Coverage
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
-    branches: [main, develop] # PRトリガー時にカバレッジレポートを投稿
+    branches: [main] # PRトリガー時にカバレッジレポートを投稿
+    types: [opened, reopened, synchronize, ready_for_review]
 
 jobs:
   test:
@@ -29,24 +30,5 @@ jobs:
         # 100%未満の場合、このステップでCIが失敗します
         run: npm run ci:test
 
-      # 2. (推奨) カバレッジレポートをGitHub Artifactとしてアップロード
-      # CI結果の確認やデバッグに役立ちます
-      - name: Upload Coverage Report Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: vitest-coverage-report
-          path: coverage/lcov.info
-          if-no-files-found: error # lcov.infoがない場合はCIを失敗させる
-
-      # 3. PRコメントにカバレッジ情報を投稿 (★このステップが鍵です)
-      # MishaKav/pytest-coverage-comment ActionはLCOVファイルを読み取ってくれます
-      - name: Comment PR with Coverage Summary
-        # pull_requestイベントでのみ実行されるように制限します
-        if: github.event_name == 'pull_request'
-        uses: MishaKav/pytest-coverage-comment@main
-        with:
-          # Vitestが生成したLCOVファイルへのパスを指定
-          coverage-path: coverage/lcov.info
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # コメントレポートのタイトルを設定
-          title: 🧪 Vitest Code Coverage Report
+      - name: "Report Coverage"
+        uses: davelosert/vitest-coverage-report-action@v2
