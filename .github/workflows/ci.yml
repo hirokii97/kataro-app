@@ -36,7 +36,7 @@ jobs:
 
         # 💡 lcov.infoファイルを読み取り、MarkdownテーブルとしてPRにコメントするアクション
         # Codecovの代替として、特定のフォーマットでコメントするアクションを使用
-        uses: pet-locker/jest-coverage-commenter@v1.2.0
+        uses: simple-actions/coverage-report@v3
         with:
           # Vitestの設定で生成されたlcovファイルパスを指定
           coverage-summary-path: "coverage/lcov.info"
