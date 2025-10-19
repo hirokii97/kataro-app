@@ -1,0 +1,46 @@
+name: CI / Test and Coverage
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop] # PRトリガー時にカバレッジレポートを投稿
+
+jobs:
+  test:
+    name: Run Tests and Check Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # 1. Vitestを実行し、カバレッジレポート（lcov.infoを含む）を生成
+      - name: Run Vitest and Check 100% Coverage
+        # 100%未満の場合、このステップでCIが失敗します
+        run: npm run test:coverage
+
+      # 2. 外部ツールを使わずにPRコメントとしてカバレッジを表示
+      - name: Post Coverage Report to PR
+        # 💡 PRの場合のみコメントを投稿するよう条件を設定
+        if: github.event_name == 'pull_request'
+
+        # 💡 lcov.infoファイルを読み取り、MarkdownテーブルとしてPRにコメントするアクション
+        # Codecovの代替として、特定のフォーマットでコメントするアクションを使用
+        uses: pet-locker/jest-coverage-commenter@v1.2.0
+        with:
+          # Vitestの設定で生成されたlcovファイルパスを指定
+          coverage-summary-path: "coverage/lcov.info"
+
+          # GitHubの認証トークン（標準で用意されている）
+          # PRへのコメント投稿権限があるため、外部シークレットは不要
+          github-token: ${{ secrets.GITHUB_TOKEN }}

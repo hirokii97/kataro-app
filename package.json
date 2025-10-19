@@ -7,8 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest",
-    "test:coverage": "vitest run --coverage",
+    "test": "vitest run --coverage",
     "ci:test": "vitest run --coverage --reporter=json --outputFile=coverage/coverage-summary.json"
   },
   "dependencies": {
