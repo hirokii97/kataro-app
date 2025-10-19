@@ -47,7 +47,6 @@ jobs:
         with:
           # Vitestが生成したLCOVファイルへのパスを指定
           coverage-path: coverage/lcov.info
-          # PRにコメントするためのGitHubトークン
           token: ${{ secrets.GITHUB_TOKEN }}
           # コメントレポートのタイトルを設定
           title: 🧪 Vitest Code Coverage Report
