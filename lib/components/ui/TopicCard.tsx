@@ -4,9 +4,10 @@ interface TopicCardProps {
   name: string;
   colorCode: string;
   displayName: string;
+  iconHtml: string
 }
 
-const TopicCard = ({ name, colorCode, displayName }: TopicCardProps) => {
+const TopicCard = ({ name, colorCode, displayName, iconHtml }: TopicCardProps) => {
   return (
     <Link href={`/${name}`} passHref>
       <div
@@ -18,7 +19,7 @@ const TopicCard = ({ name, colorCode, displayName }: TopicCardProps) => {
           hover:opacity-90 active:scale-[0.98] border-3"
         style={{ borderColor: colorCode }}
       >
-        <span className="font-mono font-bold">{displayName}</span>
+        <span className="font-mono font-bold"><span dangerouslySetInnerHTML={{ __html: iconHtml}}></span>{displayName}</span>
       </div>
     </Link>
   );

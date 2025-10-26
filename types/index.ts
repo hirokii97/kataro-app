@@ -5,6 +5,7 @@ export type Topic = {
   color_code: string;
   sort_order: number;
   display_name: string;
+  icon_html: string
 };
 
 // questionsテーブルのデータ型

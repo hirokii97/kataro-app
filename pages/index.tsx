@@ -23,6 +23,7 @@ export default function Home({ topics }: HomePageProps) {
             name={topic.name}
             displayName={topic.display_name}
             colorCode={topic.color_code}
+            iconHtml={topic.icon_html}
           />
         ))}
       </div>
