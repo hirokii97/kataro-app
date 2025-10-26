@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { useRouter } from "next/router";
+import { Button, ButtonLink } from "@/lib/components/ui/Button";
 
 interface ModalLayoutProps {
   children: ReactNode;
@@ -30,8 +31,14 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({ children, isOpen }) => {
           &times;
         </button>
       </div>
-
-      <div className="p-4">{children}</div>
+      <div className="p-4">
+        {children}
+        <div className="flex items-center justify-center">
+          <Button onClick={handleClose} aria-label="話題を閉じる">
+            閉じる
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
