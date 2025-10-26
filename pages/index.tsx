@@ -31,10 +31,8 @@ export default function Home({ topics }: HomePageProps) {
           話題を取得できませんでした。データベースを確認してください。
         </p>
       )}
-      <div className="mt-6 flex justify-center">
-      <ButtonLink>
-        <Link href="/form">話題をリクエストする</Link>
-      </ButtonLink>
+      <div className="mt-6 flex justify-start text-custom-link">
+        <Link href="/form">&#x1f64b;話題をリクエストする</Link>
       </div>
     </div>
   );
