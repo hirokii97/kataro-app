@@ -2,7 +2,6 @@ import { getAllTopics } from "@/lib/db";
 import TopicCard from "@/lib/components/ui/TopicCard";
 import { Topic } from "@/types";
 import Link from "next/link";
-import { ButtonLink } from "@/lib/components/ui/Button";
 
 interface HomePageProps {
   topics: Topic[];

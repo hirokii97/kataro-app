@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { useRouter } from "next/router";
-import { Button, ButtonLink } from "@/lib/components/ui/Button";
+import { Button } from "@/lib/components/ui/Button";
 
 interface ModalLayoutProps {
   children: ReactNode;
